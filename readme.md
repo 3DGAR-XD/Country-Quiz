@@ -1,0 +1,13 @@
+# Country Quiz
+
+This is a country test.
+In this game you cannot choose the country you want to play with, to make it more complex, the country is chosen **randomly** and asked about its characteristics.
+
+I used API `fetch` to fetch the data, `response.json()` to convert the promise to json file, I randomized with `Math.random()` the choice of countries and answers and in an `option` put the correct answer.
+
+The `Verificar` button checks the value of the `select` and compares it with that of the API.
+
+- If it is correct, go to the next question
+- If it fails you lose.
+
+The API that I used for this game is this [Rest Countries v3.1 All](https://restcountries.com/v3.1/all)
