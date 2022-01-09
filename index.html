@@ -4,145 +4,118 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Country Quiz Game</title>
+	<meta name="description" content="This is another Quiz of countries developed by 3DGAR XD. enjoy it :)">
+	<title>Country Quiz Game | 3DGAR XD</title>
+	<style>
+		*{margin:0;border:0;padding:0;font-family:Georgia, sans-serif}
+		body{text-align: center;display: flex;height: 100vh;width: 100vw;justify-content: center;align-items: center;}
+		h1{font-size:2em}
+		#game,#result,#description{height: 100%;width: 100%; display:flex;flex-direction: column;justify-content: space-evenly;}
+		#description{height:75%}
+		#input {display:flex}
+		#input input{width:100%;padding: 2em; margin:2em; border:2px solid #000; border-radius:10px;cursor:pointer;transition: .5s}
+		.card{width:60%;background-color: #eee;border-radius:20px;padding: 5%;box-shadow: 0px 3px 20px 1px #10004b;}
+		[value=Generar]{background-color:#a40}
+		.game{display:none}
+		.result{display:none}
+		#score{font-size:2em;margin:2em 0}
+		body{background-color: #5256a1cc;}
+		label{display: block;margin: 1em auto}
+		select,[value=Verificar], [value=Terminar]{margin: auto 2em; text-align:center; border: 2px solid #000;border-radius: 5px;cursor:pointer;transition: .5s;padding: .5em}
+		[value=Verificar]{padding:1em}
+		[value=Verificar]:hover{background-color:#b8f}
+		[value=Terminar]{margin:2em auto;padding:1em; width: 50%}
+		[value=Terminar]:hover{background-color:#a40}
+		a{text-decoration: none;transition: 1s;display:block;margin:1em auto}
+		a:visited{color: #5600a7}
+		a:hover{text-decoration: underline}
+		span,p{margin:1em auto}
+	</style>
 </head>
 <body>
-	<h1>Country Quiz</h1>
-	<p>Bienvenido al juego de adivinar las caracteristicas de TODOS los países del mundo (Hay 250 en este juego).</p>
-	<p>Para empezar, genera un país aleatorio y con base en ese país se generarán las respuestas.</p>
-	<strong></strong>
-	<input type="button" value="Generar">
-	<input type="button" value="Jugar">
-	<div id="capital">
-		<p>Cual es la capital de: </p>
-		<select>
-			<option name="select" value></option>
-			<option name="select" value></option>
-			<option name="select" value></option>
-			<option name="select" value></option>
-			<option name="select" value></option>
-		</select>
-		<input type="button" value="Verificar">
+	<div class="card home">
+		<h1>Country Quiz</h1>
+		<div id="description">
+			<p>Bienvenido al juego de adivinar las caracteristicas de TODOS los países del mundo (Hay 250 en este juego).</p>
+			<p>Para empezar, genera un país aleatorio y con base en ese país se generarán las respuestas.</p>
+			<strong>El país generado es: </strong>
+		</div>
+		<div id="input">
+			<input type="button" value="Generar">
+			<input type="button" value="Jugar">
+		</div>
 	</div>
-	<div id="independent">
-		<p>Es un país independiente: </p>
-		<select>
-			<option name="select" value></option>
-			<option name="select" value></option>
-		</select>
-		<input type="button" value="Verificar">
+	<div class="card game">
+		<div id="game">
+			<div id="capital">
+				<label for="select">Cual es la capital de: </label>
+				<select>
+					<option class="capital"></option>
+					<option class="capital"></option>
+					<option class="capital"></option>
+					<option class="capital"></option>
+					<option class="capital"></option>
+				</select>
+				<input type="button" value="Verificar">
+			</div>
+			<div id="timezones">
+				<label for="select">Cual es una de las zonas horarias de: </label>
+				<select>
+					<option class="timezones"></option>
+					<option class="timezones"></option>
+					<option class="timezones"></option>
+					<option class="timezones"></option>
+					<option class="timezones"></option>
+				</select>
+				<input type="button" value="Verificar">
+			</div>
+			<div id="tld">
+				<label for="select">Cual es el dominio de nivel superior de: </label>
+				<select>
+					<option class="tld"></option>
+					<option class="tld"></option>
+					<option class="tld"></option>
+					<option class="tld"></option>
+					<option class="tld"></option>
+				</select>
+				<input type="button" value="Verificar">
+			</div>
+			<div id="population">
+				<label for="select">Cuantos habitantes tiene: </label>
+				<select>
+					<option class="population"></option>
+					<option class="population"></option>
+					<option class="population"></option>
+					<option class="population"></option>
+					<option class="population"></option>
+				</select>
+				<input type="button" value="Verificar">
+			</div>
+			<div id="independent">
+				<label for="select"></label>
+				<select>
+					<option class="independent"></option>
+					<option class="independent"></option>
+				</select>
+				<input type="button" value="Verificar">
+			</div>
+			<input type="submit" value="Terminar">
+		</div>
 	</div>
-	<div id="timezones">
-		<p>Cual es una de las zonas horarias de: </p>
-		<select>
-			<option name="select" value></option>
-			<option name="select" value></option>
-			<option name="select" value></option>
-			<option name="select" value></option>
-			<option name="select" value></option>
-		</select>
-		<input type="button" value="Verificar">
+	<div class="card result">
+		<div id="result">
+			<h2>FELICIDADES!!</h2>
+			<span>De 5 puntos posibles has hecho: </span>
+			<span id="score"></span>
+			<p>Espero que te haya gustado el juego :)</p>
+			(Recarga la página para volver a jugar)
+			<a href="https://github.com/3DGAR-XD?tab=repositories" rel="noopener noreferrer" title="Más proyectos">Más proyectos y juegos</a>
+			<footer>
+				Contacto o Feedback: <a href="mailto:ejlc200@gmail.com" target="_blank" rel="noopener noreferrer" title="E-mail">E-mail</a>
+				<a href="https://facebook.com/3DGARXD" target="_blank" rel="noopener noreferrer" title="Facebook"> Facebook</a>
+			</footer>
+		</div>
 	</div>
-	<div id="tld">
-		<p>Cual es el dominio de nivel superior de: </p>
-		<select>
-			<option name="select" value></option>
-			<option name="select" value></option>
-			<option name="select" value></option>
-			<option name="select" value></option>
-			<option name="select" value></option>
-		</select>
-		<input type="button" value="Verificar">
-	</div>
-	<div id="population">
-		<p>Cual es la población de: </p>
-		<select>
-			<option name="select" value></option>
-			<option name="select" value></option>
-			<option name="select" value></option>
-			<option name="select" value></option>
-			<option name="select" value></option>
-		</select>
-		<input type="button" value="Verificar">
-	</div>
-
-	<div id="go"></div>
+	<script src="./script.js" defer></script>
 </body>
-<script>
-	const api = 'https://restcountries.com/v3.1/all';
-	fetch(api)
-		.then(response => response.json())
-		.then(data => {
-			let input = document.querySelector("[value=Generar]")  //input seleccionar país aleatorio
-			let game = document.querySelector("[value=Jugar]") //input jugar
-			game.disabled = true
-			const country = data[Math.floor(Math.random() * data.length)] // pais aleatorio
-
-			input.addEventListener("click",()=>{
-				let strong = document.querySelector('strong')
-				strong.innerHTML = country.translations.spa.official
-				input.disabled = true
-				game.disabled = false
-				console.log(country)/* provisional */
-
-				// llenando options de capital
-				document.querySelector("#capital>p").innerHTML+=country.translations.spa.official
-				document.querySelectorAll("#capital option").forEach(option => {option.value = option.innerHTML= data[Math.floor(Math.random() * data.length)].capital})
-				document.querySelectorAll("#capital option")[2].innerHTML = document.querySelectorAll("#capital option")[2].value = country.capital
-
-				document.querySelector("#independent>p").innerHTML+=country.translations.spa.official
-				independent = document.querySelectorAll("#independent option")
-				independent[0].value = false, independent[0].innerHTML = "No"
-				independent[1].value = true, independent[1].innerHTML = "Sí"
-
-				// llenando options de zona horaria
-				document.querySelector("#timezones>p").innerHTML+=country.translations.spa.official
-				document.querySelectorAll("#timezones option").forEach(option => {option.value = option.innerHTML= data[Math.floor(Math.random() * data.length)].timezones[0]})
-				document.querySelectorAll("#timezones option")[3].innerHTML = document.querySelectorAll("#timezones option")[3].value = country.timezones[0]
-
-				//llenando options de dominio de nivel superior
-				document.querySelector("#tld>p").innerHTML+=country.translations.spa.official
-				document.querySelectorAll("#tld option").forEach(option => {option.value = option.innerHTML= data[Math.floor(Math.random() * data.length)].tld[0]})
-				document.querySelectorAll("#tld option")[1].innerHTML = document.querySelectorAll("#tld option")[1].value = country.tld[0]
-
-				//llenando options de poblacion
-				document.querySelector("#population>p").innerHTML+=country.translations.spa.official
-				document.querySelectorAll("#population option").forEach(option => {option.value = option.innerHTML= `${data[Math.floor(Math.random() * data.length)].population} personas`})
-				document.querySelectorAll("#population option")[4].innerHTML = document.querySelectorAll("#population option")[4].value = `${country.population} personas`
-				},false)
-
-				// capital
-				document.querySelector("#capital [value=Verificar]").addEventListener("click",() => {
-				if (document.querySelector("#capital")){
-					if(document.querySelector("#capital>select").value == country.capital){document.querySelector("#go").innerHTML = "ganaste"}
-					else{document.querySelector("#go").innerHTML = "perdiste"}}},false)
-
-
-			// independiente
-			let verifyInd = document.querySelector("#independent [value=Verificar]").addEventListener("click",() => {
-				if (document.querySelector("#independent")){
-					if(document.querySelector("#independent>select").value == country.independent){document.querySelector("#go").innerHTML = "ganaste"}
-					else{document.querySelector("#go").innerHTML = "perdiste"}}},false)
-
-			// zona horaria
-			let verifyTime = document.querySelector("#timezones [value=Verificar]").addEventListener("click",() => {
-				if (document.querySelector("#timezones")){
-					if(document.querySelector("#timezones>select").value == country.timezones[0]){document.querySelector("#go").innerHTML = "ganaste"}
-					else{document.querySelector("#go").innerHTML = "perdiste"}}},false)
-
-			// dominio de nivel superior
-			let verifyTld = document.querySelector("#tld [value=Verificar]").addEventListener("click",() => {
-				if (document.querySelector("#tld")){
-					if(document.querySelector("#tld>select").value == country.tld[0]){document.querySelector("#go").innerHTML = "ganaste"}
-					else{document.querySelector("#go").innerHTML = "perdiste"}}},false)
-
-			// poblacion
-			document.querySelector("#population [value=Verificar]").addEventListener("click",() => {
-				if (document.querySelector("#population")){
-					if(document.querySelector("#population>select").value == `${country.population} personas`){document.querySelector("#go").innerHTML = "ganaste"}
-					else{document.querySelector("#go").innerHTML = "perdiste"}}},false)
-
-				})
-		.catch(err => console.log(err))
-</script>
 </html>

@@ -7,8 +7,7 @@ I used API `fetch` to fetch the data, `response.json()` to convert the promise t
 
 The `Verificar` button checks the value of the `select` and compares it with that of the API.
 
-- If it is correct, go to the next question
-- If it fails you lose.
+- The score is shown in the `span` at the end of the quiz
 
 The API that I used for this game is this [Rest Countries v3.1 All](https://restcountries.com/v3.1/all)
 
