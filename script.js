@@ -7,7 +7,7 @@ fetch(api)
   .then((response) => response.json())
   .then((data) => {
     const country = data[Math.floor(Math.random() * data.length)]; // get a random country
-    document.querySelector("[value=Generar]").addEventListener("click", () => {
+    document.querySelector("[value=Generar]").addEventListener("click", async () => {
       document.querySelector("[value=Generar]").toggleAttribute("disabled");
       document.querySelector("[value=Jugar]").removeAttribute("disabled");
       document.querySelector("[value=Jugar]").style.backgroundColor = "#090";
@@ -22,11 +22,11 @@ fetch(api)
       // Generador de país y relleno de opciones
       const randomize = Math.floor(Math.random() * 5);
       if (document.getElementsByClassName("capital")) {
-        document.querySelectorAll(".capital")[randomize].innerHTML = country.capital[0];
+        document.querySelectorAll(".capital")[randomize].innerHTML = country.capital;
         document.querySelectorAll(".capital").forEach((option) => {
           if (option.textContent === "") {
             const opt = option;
-            opt.innerHTML = data[Math.floor(Math.random() * data.length)].capital[0];
+            opt.innerHTML = data[Math.floor(Math.random() * data.length)].capital;
           }
         });
       } if (document.getElementsByClassName("timezones")) {
@@ -59,7 +59,7 @@ fetch(api)
       }
       // Validación de respuestas
       document.querySelector("#capital [value=Verificar]").addEventListener("click", () => {
-        if (document.querySelector("#capital select").value === country.capital[0]) {
+        if (document.querySelector("#capital select").value === country.capital) {
           puntos += 1;
           document.querySelector("#capital select").style.backgroundColor = "#00d912";
         } else { document.querySelector("#capital select").style.backgroundColor = "#e30000"; }
@@ -80,7 +80,7 @@ fetch(api)
         document.querySelector("#tld [value=Verificar]").disabled = true;
       });
       document.querySelector("#population [value=Verificar]").addEventListener("click", () => {
-        if (document.querySelector("#population select").value === country.population.toString()) {
+        if (document.querySelector("#population select").value === `${country.population} personas`) {
           puntos += 1;
           document.querySelector("#population select").style.backgroundColor = "#00d912";
         } else { document.querySelector("#population select").style.backgroundColor = "#e30000"; }
