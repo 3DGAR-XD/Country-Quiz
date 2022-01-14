@@ -63,7 +63,7 @@ fetch(api)
           puntos += 1;
           document.querySelector("#capital select").style.backgroundColor = "#00d912";
         } else { document.querySelector("#capital select").style.backgroundColor = "#e30000"; }
-        // document.querySelector("#capital [value=Verificar]").disabled = true;
+        document.querySelector("#capital [value=Verificar]").disabled = true;
       });
       document.querySelector("#timezones [value=Verificar]").addEventListener("click", () => {
         if (document.querySelector("#timezones select").value === country.timezones[0]) {
