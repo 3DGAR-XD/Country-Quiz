@@ -10,6 +10,3 @@ The `Verificar` button checks the value of the `select` and compares it with tha
 - The score is shown in the `span` at the end of the quiz
 
 The API that I used for this game is this [Rest Countries v3.1 All](https://restcountries.com/v3.1/all)
-
-Tasks:
-- Apply the styles to the elements
