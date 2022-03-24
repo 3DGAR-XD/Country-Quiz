@@ -13,8 +13,9 @@ async function getData() {
 		document.querySelector(".home").classList.remove("d-none");
 		document.body.style.backgroundImage = "url(./bg.jpg)";
 		document.body.style.backgroundColor = "#eee";
+		document.body.style.backgroundPositionX = `${Math.round(Math.random()*100)}%`;
+                document.body.style.backgroundPositionY = `${Math.round(Math.random()*100)}%`;
 
-		document.body.style.backgroundPosition = `${Math.round(Math.random()*100)}%`;
 		const country = data[Math.floor(Math.random() * data.length)]; // get a random country
 		if (typeof country.capital === "undefined") country.capital = "No tiene capital";
 		// console.log(data);
