@@ -11,7 +11,7 @@ async function getData() {
 		const data = await response.json();
 
 		document.querySelector(".home").classList.remove("d-none");
-		document.body.style.backgroundImage = "url(bg.jpg)";
+		document.body.style.backgroundImage = "url(./bg.jpg)";
 		document.body.style.backgroundColor = "#eee";
 
 		document.body.style.backgroundPosition = `${Math.round(Math.random()*100)}%`;
@@ -122,12 +122,14 @@ async function getData() {
 		console.error(error);
 		if (error.message === "Failed to fetch") window.location.reload(true);
 		if (error.message.startsWith(`Hay un problema en el servidor`)) {
-			document.querySelector("img").src = "/server.png";
+			document.querySelector("img").src = "./server.png";
+			document.querySelector("img").alt = "No hay conexion en el servidor";
 			document.getElementById("errorCode").innerHTML += error.message.substring(31, 34);
 			document.getElementById("errorDescription").innerHTML += error.message.substring(0, 31);
 		}
 		else if (error.message.startsWith(`No se han encontrado los datos`)) {
-			document.querySelector("img").src = "/connection.png";
+			document.querySelector("img").src = "./connection.png";
+			document.querySelector("img").alt = "No hay conexion a internet";
 			document.getElementById("errorCode").innerHTML += error.message.substring(31, 34);
 			document.getElementById("errorDescription").innerHTML += error.message.substring(0,31);
 		}
