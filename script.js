@@ -1,19 +1,20 @@
 let puntos = 0;
 const api = "https://restcountries.com/v3.1/all";
-
 async function getData() {
-	try{
+	try {
 		const response = await fetch(api);
-		// console.log(response);
+		console.log(response);
 		if(!response.ok) {
-			document.querySelector(".home").classList.add("d-none");
-			document.querySelector(".status").classList.remove("d-none");
-			document.getElementById("errorCode").innerHTML += response.status;
-			if(400 <= parseInt(response.status) && parseInt(response.status) < 500) document.getElementById("errorDescription").innerHTML += "No se han encontrado los datos";
-			else if(500 <= parseInt(response.status) && parseInt(response.status) < 600) document.getElementById("errorDescription").innerHTML += "Hay un problema en el servidor";
+			if (400 <= parseInt(response.status) && parseInt(response.status) < 500) throw new Error (`No se han encontrado los datos ${response.status}`);
+			else if (500 <= parseInt(response.status) && parseInt(response.status) < 600)  throw new Error (`Hay un problema en el servidor ${response.status}`);
 		}
 		const data = await response.json();
-		// document.querySelector(".home").classList.remove("d-none");
+
+		document.querySelector(".home").classList.remove("d-none");
+		document.body.style.backgroundImage = "url(/bg.jpg)";
+		document.body.style.backgroundColor = "#eee";
+
+		document.body.style.backgroundPosition = `${Math.round(Math.random()*100)}%`;
 		const country = data[Math.floor(Math.random() * data.length)]; // get a random country
 		if (typeof country.capital === "undefined") country.capital = "No tiene capital";
 		// console.log(data);
@@ -114,8 +115,22 @@ async function getData() {
 		}, false);
 	}
 	catch (error) {
-		console.trace(error);
-		alert(error.message);
+		document.querySelector(".home").classList.add("d-none");
+		document.querySelector(".game").classList.add("d-none");
+		document.querySelector(".result").classList.add("d-none");
+		document.querySelector(".status").classList.remove("d-none");
+		console.error(error);
+		if (error.message === "Failed to fetch") window.location.reload(true);
+		if (error.message.startsWith(`Hay un problema en el servidor`)) {
+			document.querySelector("img").src = "/server.png";
+			document.getElementById("errorCode").innerHTML += error.message.substring(31, 34);
+			document.getElementById("errorDescription").innerHTML += error.message.substring(0, 31);
+		}
+		else if (error.message.startsWith(`No se han encontrado los datos`)) {
+			document.querySelector("img").src = "/connection.png";
+			document.getElementById("errorCode").innerHTML += error.message.substring(31, 34);
+			document.getElementById("errorDescription").innerHTML += error.message.substring(0,31);
+		}
 	}
 }
-window.onload = getData();
+getData();
