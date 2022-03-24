@@ -11,7 +11,7 @@ async function getData() {
 		const data = await response.json();
 
 		document.querySelector(".home").classList.remove("d-none");
-		document.body.style.backgroundImage = "url(/bg.jpg)";
+		document.body.style.backgroundImage = "url(bg.jpg)";
 		document.body.style.backgroundColor = "#eee";
 
 		document.body.style.backgroundPosition = `${Math.round(Math.random()*100)}%`;
