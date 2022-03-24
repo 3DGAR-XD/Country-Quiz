@@ -1,5 +1,5 @@
 let puntos = 0;
-const api = "https://restcountries.com/v3.1/all";
+const api = "https://restcountries.com/v3.1/al";
 async function getData() {
 	try {
 		const response = await fetch(api);
