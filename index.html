@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="This is another Quiz of countries developed by 3DGAR XD. enjoy it :)">
+		<title>Country Quiz Game | 3DGAR XD</title>
+		<link rel="shortcut icon" href="./icon.png" type="image/x-icon">
+		<style>
+			@media (max-width: 991px) {
+				.form-select {
+					margin: 1rem auto;
+					width: 100% !important;
+				}
+				.game div {
+					height: auto !important;
+				}
+			}
+		</style>
+		<script type="module" crossorigin src="/Country-Quiz/assets/index-df668745.js"></script>
+		<link rel="stylesheet" href="/Country-Quiz/assets/index-671f65eb.css">
+	</head>
+	<body>
+	 <div>
+		<div class="home">
+			<div class="container text-center vh-100 d-flex flex-column justify-content-center">
+				<h1>Country Quiz</h1>
+				<div class="my-3">
+					<p class="lead">
+						Bienvenido al juego de adivinar las caracteristicas de TODOS los
+						países del mundo (Hay 250 en este juego).
+					</p>
+					<p>
+						Para empezar, genera un país aleatorio y con base en ese país se
+						generarán las respuestas.
+					</p>
+					<strong class="country">El país generado es: </strong>
+				</div>
+				<div>
+					<button id="generar" class="btn btn-warning mx-3">Generar</button>
+					<button id="jugar" class="btn btn-outline-success disabled mx-3">
+						Jugar
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="game d-none">
+			<div class="container text-center vh-100 d-flex flex-column justify-content-center">
+				<div id="capital" class="m-md-4 m-3 row">
+					<label for="select" class="col-lg-4 col-12 align-self-center">
+						Cual es la capital de:
+					</label>
+					<select class="form-select col-lg-6 col-12 w-50 mx-lg-3">
+						<option class="capital"></option>
+						<option class="capital"></option>
+						<option class="capital"></option>
+						<option class="capital"></option>
+						<option class="capital"></option>
+					</select>
+					<button class="btn btn-secondary col-lg-1 col-12">Verificar</button>
+				</div>
+				<div id="timezones" class="m-md-4 m-3 row">
+					<label for="select" class="col-lg-4 col-12 align-self-center">
+						Cual es una de las zonas horarias de:
+					</label>
+					<select class="form-select col-lg-6 col-12 w-50 mx-lg-3">
+						<option class="timezones"></option>
+						<option class="timezones"></option>
+						<option class="timezones"></option>
+						<option class="timezones"></option>
+						<option class="timezones"></option>
+					</select>
+					<button class="btn btn-secondary col-lg-1 col-12">Verificar</button>
+				</div>
+				<div id="tld" class="m-md-4 m-3 row">
+					<label for="select" class="col-lg-4 col-12 align-self-center">
+						Cual es el dominio de nivel superior de:
+					</label>
+					<select class="form-select col-lg-6 col-12 w-50 mx-lg-3">
+						<option class="tld"></option>
+						<option class="tld"></option>
+						<option class="tld"></option>
+						<option class="tld"></option>
+						<option class="tld"></option>
+					</select>
+					<button class="btn btn-secondary col-lg-1 col-12">Verificar</button>
+				</div>
+				<div id="population" class="m-md-4 m-3 row">
+					<label for="select" class="col-lg-4 col-12 align-self-center">
+						Cuantos habitantes tiene:
+					</label>
+					<select class="form-select col-lg-6 col-12 w-50 mx-lg-3">
+						<option class="population"></option>
+						<option class="population"></option>
+						<option class="population"></option>
+						<option class="population"></option>
+						<option class="population"></option>
+					</select>
+					<button class="btn btn-secondary col-lg-1 col-12">Verificar</button>
+				</div>
+				<div id="independent" class="m-md-4 m-3 row">
+					<label for="select" class="col-lg-4 col-12 align-self-center"></label>
+					<select class="form-select col-lg-6 col-12 w-50 mx-lg-3">
+						<option class="independent"></option>
+						<option class="independent"></option>
+					</select>
+					<button class="btn btn-secondary col-lg-1 col-12">Verificar</button>
+				</div>
+				<div class="m-md-4 m-3 row">
+					<button class="btn btn-outline-success col-lg-3 col-12 end mx-auto">Terminar</button>
+				</div>
+			</div>
+		</div>
+		<div class="result d-none">
+			<div class="container text-center vh-100 d-flex flex-column justify-content-center">
+				<h2>FELICIDADES!!</h2>
+				<span class="lead m-3">De 5 puntos posibles has hecho: </span>
+				<span id="score" class="lead m-3 d-block"></span>
+				<p class="m-3">Espero que te haya gustado el juego :)</p>
+				<p class="m-3">(Recarga la página para volver a jugar)</p>
+				<a class="btn btn-outline-success m-3 mx-auto" href="https://3dgar-xd.github.io/" target="_blank" rel="noopener noreferrer" title="Más proyectos">
+					Más proyectos y juegos
+				</a>
+				<footer>
+					Contacto o Feedback:
+					<a class="btn btn-outline-info mx-1" href="mailto:ejlc200@gmail.com" target="_blank" rel="noopener noreferrer" title="E-mail">
+						E-mail
+					</a>
+					<a class="btn btn-outline-info mx-1" href="https://facebook.com/3DGARXD" target="_blank" rel="noopener noreferrer" title="Facebook">
+						Facebook
+					</a>
+					<a class="btn btn-outline-info mx-1" href="https://github.com/3DGAR-XD" target="_blank" rel="noopener noreferrer" title="GitHub">
+						GitHub
+					</a>
+				</footer>
+			</div>
+		</div>
+		<div class="status d-none">
+			<div class="container text-center vh-100 d-flex flex-column justify-content-center">
+				<div class="row align-items-center">
+					<div class="col-12 col-lg-6 mb-3 my-lg-0">
+						<h1 class="text-center col-12 fs-1" id="errorCode">Error</h1>
+						<p class="text-center lead col-12 fs-3" id="errorDescription">
+						Este error significa que:
+						</p>
+						<span class="text-center col-12 fs-4">
+							Intenta más tarde o reinicia la página :)
+						</span>
+					</div>
+					<div class="col-12 col-lg-6">
+						<img src="" alt="" class="w-25">
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+	</body>
+</html>
